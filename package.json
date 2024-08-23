@@ -40,6 +40,7 @@
 		"@types/eslint-plugin-markdown": "^2.0.2",
 		"@types/eslint__js": "^8.42.3",
 		"@types/node": "^22.5.0",
+		"@types/web-app-manifest": "^1.0.8",
 		"@vitest/coverage-v8": "^2.0.5",
 		"@vitest/eslint-plugin": "^1.0.3",
 		"console-fail-test": "^0.5.0",

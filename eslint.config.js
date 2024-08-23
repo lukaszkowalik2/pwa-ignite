@@ -69,9 +69,18 @@ export default tseslint.config(
 
 			// These on-by-default rules work well for this repo if configured
 			"@typescript-eslint/no-unused-vars": ["error", { caughtErrors: "all" }],
+			"n/no-missing-import": "off",
 			"n/no-unsupported-features/node-builtins": [
 				"error",
 				{ allowExperimental: true },
+			],
+			"perfectionist/sort-classes": [
+				"error",
+				{
+					groups: [["static-property", "property", "constructor", "method"]],
+					groupsOrder: ["property", "constructor", "method"],
+					order: "asc",
+				},
 			],
 			"perfectionist/sort-objects": [
 				"error",
