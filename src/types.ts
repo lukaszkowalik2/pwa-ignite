@@ -14,4 +14,7 @@ export interface IRelatedApp {
 	platform: string;
 	url: string;
 }
-export type Manifest = SetRequired<WebAppManifest, "icons" | "name">;
+export type Manifest = SetRequired<
+	WebAppManifest,
+	"icons" | "name" | "short_name"
+>;

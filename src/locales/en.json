@@ -1,3 +1,8 @@
 {
-	"install_app": "Install {{app_name}} app"
+	"press_share_in_navigation_bar": "Press 'Share' in the navigation bar",
+	"press_add_to_home_screen": "Press 'Add to Home Screen'",
+	"you_may_scroll_down_to_find_the_install_button": "You may scroll down to find the install button",
+	"press_three_dots": "Press the three dots",
+	"press_open_in_browser": "Press 'Open in Browser'",
+	"press_compass_icon_to_open_in_system_browser": "Press the compass icon to open in system browser"
 }
