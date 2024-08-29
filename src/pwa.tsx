@@ -11,11 +11,6 @@ import {
 import { h, render, type ComponentChildren } from "preact";
 import { setup } from "goober";
 
-import type {
-	BeforeInstallPromptEvent,
-	IRelatedApp,
-	Manifest,
-} from "./types.js";
 import { Modal } from "./components/Modal.js";
 import { Container } from "./components/Container.js";
 import { ListItem } from "./components/ListItem.js";
@@ -26,6 +21,12 @@ import { IOSOpenInSystemBrowser } from "./components/Arrows/IOSOpenInSystemBrows
 import { IOSOpenInSafari } from "./components/Arrows/IOSOpenInSafari.js";
 import { DownloadAndroid } from "./components/Svgs/DownloadAndroid.js";
 import { AndroidChromeArrow } from "./components/Arrows/AndroidChromeArrow.js";
+
+import type {
+	BeforeInstallPromptEvent,
+	IRelatedApp,
+	Manifest,
+} from "./types.js";
 
 setup(h);
 
@@ -43,13 +44,18 @@ export class PWA {
 	public isRelatedAppsInstalled = false;
 
 	constructor(options?: PWAOptions) {
+		this._init(options);
+	}
+
+	private async _init(options?: PWAOptions) {
 		if (options && options.manifest) {
 			this._manifest = options.manifest;
 			this.addManifestToPage();
 		} else {
-			this.setManifest();
+			await this.setManifest();
 		}
-		this.setIsInstallAvailable();
+		await this.setIsInstallAvailable();
+		this.runDiagnostics();
 	}
 
 	private async setIsInstallAvailable() {
@@ -386,5 +392,90 @@ export class PWA {
 		} else {
 			return Promise.reject(new Error("No manifest link found on page"));
 		}
+	}
+
+	public isManifestValid(manifest: Manifest): boolean {
+		if (!manifest) {
+			console.error("Manifest is undefined or null.");
+			return false;
+		}
+
+		const requiredFields: (
+			| "name"
+			| "short_name"
+			| "start_url"
+			| "icons"
+			| "display"
+		)[] = ["name", "short_name", "start_url", "icons", "display"];
+
+		for (const field of requiredFields) {
+			if (!manifest[field]) {
+				console.error(`Manifest is missing required field: ${field}`);
+				return false;
+			}
+		}
+
+		if (manifest.icons === undefined) {
+			console.error("Manifest must contain at least one icon.");
+			return false;
+		}
+
+		const validIcon = manifest.icons.some((icon: any) => {
+			return icon.src && icon.sizes && icon.type;
+		});
+
+		if (!validIcon) {
+			console.error(
+				"Manifest must contain at least one valid icon with src, sizes, and type.",
+			);
+			return false;
+		}
+
+		return true;
+	}
+
+	private runDiagnostics() {
+		if (location.protocol !== "https:" && location.hostname !== "localhost") {
+			throw new Error("Service Workers require a secure origin.");
+		}
+
+		if (!("serviceWorker" in navigator)) {
+			throw new Error("Service Worker is not supported.");
+		} else {
+			navigator.serviceWorker.getRegistration().then((registration) => {
+				if (!registration) {
+					throw new Error("No Service Worker registered.");
+				}
+			});
+		}
+
+		const linkElement = document.querySelector<HTMLLinkElement>(
+			'link[rel="manifest"]',
+		);
+		if (!linkElement) {
+			throw new Error("No manifest link found on page.");
+		} else {
+			fetch(linkElement.href)
+				.then((response) => response.json())
+				.then((manifest) => {
+					this.isManifestValid(manifest);
+				})
+				.catch(() => {
+					throw new Error("Error fetching manifest.");
+				});
+		}
+
+		setTimeout(() => {
+			if (!this.deferredPrompt) {
+				console.warn(
+					"The 'beforeinstallprompt' event was not fired, so the app cannot be installed. Possible reasons:",
+				);
+				console.warn("- The site does not meet the PWA installation criteria.");
+				console.warn("- The user has already installed the app.");
+				console.warn(
+					"- The user has dismissed the install prompt in the past.",
+				);
+			}
+		}, 1000);
 	}
 }
