@@ -6,6 +6,12 @@ interface ModalProps {
 	children: ComponentChildren;
 }
 
+/**
+ * Renders a modal component.
+ *
+ * @param {ModalProps} props - The props for the modal component.
+ * @returns {JSX.Element} The rendered modal component.
+ */
 export const Modal = (props: ModalProps) => {
 	return (
 		<ModalStyle class="pwa-modal">

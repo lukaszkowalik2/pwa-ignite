@@ -5,6 +5,12 @@ interface ContainerProps {
 	children: ComponentChildren;
 }
 
+/**
+ * Renders a container component.
+ *
+ * @param {ContainerProps} props - The props for the container component.
+ * @returns {JSX.Element} The rendered container component.
+ */
 export const Container = (props: ContainerProps) => {
 	return (
 		<ContainerStyle>

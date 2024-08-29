@@ -27,26 +27,56 @@ import type {
 	IRelatedApp,
 	Manifest,
 } from "./types.js";
-
+// Setup `goober` for styling with Preact's `h` function.
 setup(h);
 
+/**
+ * Options for configuring a Progressive Web App (PWA).
+ *
+ * @remarks
+ * This interface defines the available options for configuring a Progressive Web App (PWA).
+ *
+ * @public
+ * @argument manifest - The manifest for the PWA. This is an object that contains metadata about the PWA, such as the name, short name, start URL, display mode, background color, theme color, icons, and related applications. If not provided, the PWA will attempt to fetch the manifest from the page.
+ */
 interface PWAOptions {
 	manifest?: Manifest;
 }
-
+/**
+ * Class representing a Progressive Web App (PWA) and its related functionalities. This class provides methods for installing the PWA, checking if the PWA is installed, and checking if the PWA is running in standalone mode.
+ */
 export class PWA {
 	private _manifest!: Manifest;
 	private deferredPrompt: BeforeInstallPromptEvent | null = null;
 	private relatedApps: IRelatedApp[] = [];
 
+	/**
+	 * Indicates whether the installation is available.
+	 */
 	public isInstallAvailable = false;
+
+	/**
+	 * Indicates whether the application is running in standalone mode.
+	 */
 	public isUnderStandaloneMode = false;
+	/**
+	 * Indicates whether the related apps are installed.
+	 */
 	public isRelatedAppsInstalled = false;
 
+	/**
+	 * Initializes a new instance of the PWA class.
+	 * @param options - The options for configuring the PWA.
+	 */
 	constructor(options?: PWAOptions) {
 		this._init(options);
 	}
 
+	/**
+	 * Private method to initialize the PWA.
+	 * This method sets up the manifest, checks for install availability, and runs diagnostics.
+	 * @param options Optional PWA configuration options.
+	 */
 	private async _init(options?: PWAOptions) {
 		if (options && options.manifest) {
 			this._manifest = options.manifest;
@@ -58,6 +88,10 @@ export class PWA {
 		this.runDiagnostics();
 	}
 
+	/**
+	 * Sets whether the app is installable, based on various criteria such as
+	 * whether the app is running in standalone mode or whether related apps are installed.
+	 */
 	private async setIsInstallAvailable() {
 		window.addEventListener("beforeinstallprompt", (event) => {
 			event.preventDefault();
@@ -80,6 +114,11 @@ export class PWA {
 		}
 	}
 
+	/**
+	 * Checks if related apps are installed on the user's device.
+	 * Uses the `getInstalledRelatedApps` API if available.
+	 * @returns A promise that resolves to an array of installed related apps.
+	 */
 	private async getRelatedAppsInstalled(): Promise<IRelatedApp[]> {
 		if (!("getInstalledRelatedApps" in navigator)) {
 			console.warn(
@@ -105,10 +144,19 @@ export class PWA {
 		return [];
 	}
 
+	/**
+	 * Retrieves and sets the manifest file for the PWA.
+	 */
 	private async setManifest() {
 		this._manifest = await this.getManifest();
 	}
 
+	/**
+	 * Checks if the app is running in standalone mode.
+	 * Standalone mode is when the app is installed and opened as a separate application
+	 * rather than in a web browser tab.
+	 * @returns True if the app is running in standalone mode, false otherwise.
+	 */
 	public isStandaloneMode(): boolean {
 		return (
 			(window.navigator as any).standalone || // IOS
@@ -116,6 +164,10 @@ export class PWA {
 		);
 	}
 
+	/**
+	 * Triggers the installation process for the PWA if the install prompt is available.
+	 * @returns A promise that resolves to the user's choice (accepted or dismissed) or null if the prompt isn't available.
+	 */
 	public async install(): Promise<"accepted" | "dismissed" | null> {
 		if (this.deferredPrompt) {
 			this.deferredPrompt.prompt();
@@ -128,6 +180,10 @@ export class PWA {
 		}
 	}
 
+	/**
+	 * Renders the appropriate installation dialog based on the device type (iOS or Android).
+	 * @returns The rendered Preact component tree for the installation dialog.
+	 */
 	private _renderInstallDialog(): ComponentChildren {
 		if (this.isDeviceIOS()) {
 			return this._renderIOSInstallDialog();
@@ -136,6 +192,11 @@ export class PWA {
 		}
 	}
 
+	/**
+	 * Renders the installation dialog for iOS devices.
+	 * The specific dialog rendered depends on the browser (Safari, Chrome, etc.).
+	 * @returns The rendered Preact component tree for the iOS installation dialog.
+	 */
 	private _renderIOSInstallDialog(): ComponentChildren {
 		if (this.isBrowserIOSSafari()) {
 			return this._genIOSSafari();
@@ -155,6 +216,11 @@ export class PWA {
 		}
 	}
 
+	/**
+	 * Renders the installation dialog for Android devices.
+	 * The specific dialog rendered depends on the browser (Chrome, Facebook, etc.).
+	 * @returns The rendered Preact component tree for the Android installation dialog.
+	 */
 	private _renderAndroidInstallDialog(): ComponentChildren {
 		if (this.isBrowserAndroidChrome()) {
 			return this._genAndroidChrome();
@@ -163,19 +229,34 @@ export class PWA {
 		}
 	}
 
-	close(): void {
+	/**
+	 * Closes any open installation dialog by unmounting it from the DOM.
+	 */
+	public close(): void {
 		render(null, document.body);
 	}
 
-	isDeviceAndroid(): boolean {
+	/**
+	 * Checks if the current device is running Android.
+	 * @returns True if the device is Android, false otherwise.
+	 */
+	public isDeviceAndroid(): boolean {
 		return /Android/.test(navigator.userAgent);
 	}
 
-	isDeviceIOS(): boolean {
+	/**
+	 * Checks if the current device is running iOS.
+	 * @returns True if the device is iOS, false otherwise.
+	 */
+	public isDeviceIOS(): boolean {
 		return /iPhone|iPad|iPod/.test(navigator.userAgent);
 	}
 
-	isBrowserIOSSafari(): boolean {
+	/**
+	 * Checks if the current browser is Safari on an iOS device.
+	 * @returns True if the browser is Safari on iOS, false otherwise.
+	 */
+	public isBrowserIOSSafari(): boolean {
 		return (
 			this.isDeviceIOS() &&
 			/Safari/.test(navigator.userAgent) &&
@@ -189,38 +270,70 @@ export class PWA {
 		);
 	}
 
-	isBrowserIOSChrome(): boolean {
+	/**
+	 * Checks if the current browser is Chrome on an iOS device.
+	 * @returns True if the browser is Chrome on iOS, false otherwise.
+	 */
+	public isBrowserIOSChrome(): boolean {
 		return this.isDeviceIOS() && /CriOS/.test(navigator.userAgent);
 	}
 
-	isBrowserIOSFirefox(): boolean {
+	/**
+	 * Checks if the current browser is Firefox on an iOS device.
+	 * @returns True if the browser is Firefox on iOS, false otherwise.
+	 */
+	public isBrowserIOSFirefox(): boolean {
 		return this.isDeviceIOS() && /FxiOS/.test(navigator.userAgent);
 	}
 
-	isBrowserIOSInAppFacebook(): boolean {
+	/**
+	 * Checks if the current browser is Facebook's in-app browser on an iOS device.
+	 * @returns True if the browser is Facebook's in-app browser on iOS, false otherwise.
+	 */
+	public isBrowserIOSInAppFacebook(): boolean {
 		return this.isDeviceIOS() && /FBAN|FBAV/.test(navigator.userAgent);
 	}
 
-	isBrowserIOSInAppLinkedin(): boolean {
+	/**
+	 * Checks if the current browser is LinkedIn's in-app browser on an iOS device.
+	 * @returns True if the browser is LinkedIn's in-app browser on iOS, false otherwise.
+	 */
+	public isBrowserIOSInAppLinkedin(): boolean {
 		return this.isDeviceIOS() && /LinkedInApp/.test(navigator.userAgent);
 	}
 
-	isBrowserIOSInAppInstagram(): boolean {
+	/**
+	 * Checks if the current browser is Instagram's in-app browser on an iOS device.
+	 * @returns True if the browser is Instagram's in-app browser on iOS, false otherwise.
+	 */
+	public isBrowserIOSInAppInstagram(): boolean {
 		return (
 			this.isDeviceIOS() &&
 			window.document.referrer.includes("//l.instagram.com/")
 		);
 	}
 
-	isBrowserIOSInAppThreads(): boolean {
+	/**
+	 * Checks if the current browser is Threads' in-app browser on an iOS device.
+	 * @returns True if the browser is Threads' in-app browser on iOS, false otherwise.
+	 */
+	public isBrowserIOSInAppThreads(): boolean {
 		return this.isBrowserIOSInAppInstagram();
 	}
 
-	isBrowserIOSInAppTwitter(): boolean {
+	/**
+	 * Checks if the current browser is Twitter's in-app browser on an iOS device.
+	 * @returns True if the browser is Twitter's in-app browser on iOS, false otherwise.
+	 */
+	public isBrowserIOSInAppTwitter(): boolean {
 		return this.isDeviceIOS() && window.document.referrer.includes("//t.co/");
 	}
 
-	isBrowserAndroidChrome(): boolean {
+	/**
+	 * Checks if the current browser is Chrome on an Android device.
+	 * @returns True if the browser is Chrome on Android, false otherwise.
+	 */
+	public isBrowserAndroidChrome(): boolean {
 		return (
 			this.isDeviceAndroid() &&
 			/Chrome/.test(navigator.userAgent) &&
@@ -230,18 +343,34 @@ export class PWA {
 		);
 	}
 
-	isBrowserAndroidFacebook(): boolean {
+	/**
+	 * Checks if the current browser is Facebook's in-app browser on an Android device.
+	 * @returns True if the browser is Facebook's in-app browser on Android, false otherwise.
+	 */
+	public isBrowserAndroidFacebook(): boolean {
 		return this.isDeviceAndroid() && /FBAN|FBAV/.test(navigator.userAgent);
 	}
 
-	isBrowserAndroidSamsung(): boolean {
+	/**
+	 * Checks if the current browser is Samsung Internet on an Android device.
+	 * @returns True if the browser is Samsung Internet on Android, false otherwise.
+	 */
+	public isBrowserAndroidSamsung(): boolean {
 		return this.isDeviceAndroid() && /SamsungBrowser/.test(navigator.userAgent);
 	}
 
-	isBrowserAndroidFirefox(): boolean {
+	/**
+	 * Checks if the current browser is Firefox on an Android device.
+	 * @returns True if the browser is Firefox on Android, false otherwise.
+	 */
+	public isBrowserAndroidFirefox(): boolean {
 		return this.isDeviceAndroid() && /Firefox/.test(navigator.userAgent);
 	}
 
+	/**
+	 * Generates the Preact component tree for the iOS Safari installation dialog.
+	 * @returns The rendered Preact component tree for the iOS Safari installation dialog.
+	 */
 	private _genIOSSafari(): ComponentChildren {
 		return (
 			<Container>
@@ -266,6 +395,10 @@ export class PWA {
 		);
 	}
 
+	/**
+	 * Generates the Preact component tree for the iOS Chrome installation dialog.
+	 * @returns The rendered Preact component tree for the iOS Chrome installation dialog.
+	 */
 	private _genIOSChrome(): ComponentChildren {
 		return (
 			<Container>
@@ -290,6 +423,10 @@ export class PWA {
 		);
 	}
 
+	/**
+	 * Generates the Preact component tree for an in-app browser dialog on iOS that guides the user to open in Safari.
+	 * @returns The rendered Preact component tree for the in-app browser dialog.
+	 */
 	private _genInAppBrowserOpenInSystemBrowser(): ComponentChildren {
 		return (
 			<Container>
@@ -310,6 +447,11 @@ export class PWA {
 		);
 	}
 
+	/**
+	 * Generates the Preact component tree for an in-app browser dialog on iOS that guides the user to open in Safari.
+	 * @returns The rendered Preact component tree for the in-app browser dialog on iOS.
+	 */
+
 	private _genIOSInAppBrowserOpenInSafariBrowser(): ComponentChildren {
 		return (
 			<Container>
@@ -329,6 +471,10 @@ export class PWA {
 		);
 	}
 
+	/**
+	 * Generates the Preact component tree for the Android Chrome installation dialog.
+	 * @returns The rendered Preact component tree for the Android Chrome installation dialog.
+	 */
 	private _genAndroidChrome(): ComponentChildren {
 		return (
 			<Container>
@@ -352,6 +498,9 @@ export class PWA {
 		);
 	}
 
+	/**
+	 * Adds the manifest to the page's `<head>` as a `<link>` element.
+	 */
 	private addManifestToPage(): void {
 		const manifestJson = JSON.stringify(this._manifest);
 		const manifestBlob = new Blob([manifestJson], { type: "application/json" });
@@ -364,6 +513,10 @@ export class PWA {
 		document.head.appendChild(link);
 	}
 
+	/**
+	 * Fetches the manifest file from the page.
+	 * @returns A promise that resolves to the manifest JSON object.
+	 */
 	private getManifest(): Promise<Manifest> {
 		const manifestLink = document.querySelector(
 			'link[rel="manifest"]',
@@ -394,6 +547,12 @@ export class PWA {
 		}
 	}
 
+	/**
+	 * Checks if the provided manifest object is valid.
+	 *
+	 * @param {Manifest} manifest - The manifest object to validate.
+	 * @returns {boolean} - Returns true if the manifest is valid, otherwise false.
+	 */
 	public isManifestValid(manifest: Manifest): boolean {
 		if (!manifest) {
 			console.error("Manifest is undefined or null.");
@@ -434,6 +593,27 @@ export class PWA {
 		return true;
 	}
 
+	/**
+	 * Runs diagnostics to check if the environment meets the requirements for running the service worker and installing the app as a Progressive Web App (PWA).
+	 *
+	 * @throws {Error} If the current origin is not secure (https) and not localhost.
+	 * @throws {Error} If the browser does not support service workers.
+	 * @throws {Error} If no service worker is registered.
+	 * @throws {Error} If no manifest link is found on the page.
+	 * @throws {Error} If there is an error fetching the manifest.
+	 *
+	 * @remarks
+	 * This function performs the following checks:
+	 * - Checks if the current origin is secure (https) and not localhost.
+	 * - Checks if the browser supports service workers.
+	 * - Checks if a service worker is registered.
+	 * - Checks if a manifest link is present on the page.
+	 * - Fetches the manifest and checks if it is valid.
+	 * - Logs a warning if the 'beforeinstallprompt' event was not fired.
+	 *
+	 * @example
+	 * runDiagnostics();
+	 */
 	private runDiagnostics() {
 		if (location.protocol !== "https:" && location.hostname !== "localhost") {
 			throw new Error("Service Workers require a secure origin.");

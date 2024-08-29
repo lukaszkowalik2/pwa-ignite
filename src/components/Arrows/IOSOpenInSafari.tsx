@@ -26,6 +26,10 @@ const Arrow = styled(ArrowDown)`
 	right: 15px;
 	animation: ${bouncingArrowAnimation} 1.5s infinite;
 `;
+/**
+ * Renders an iOS open in Safari arrow component.
+ * @returns JSX element representing the iOS open in Safari arrow.
+ */
 export const IOSOpenInSafari = () => (
 	// @ts-expect-error - this is a valid size. Idk why it's not in the types
 	<Arrow size={60} color={"#3478F6"} />

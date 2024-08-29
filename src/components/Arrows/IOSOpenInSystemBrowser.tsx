@@ -26,6 +26,10 @@ const Arrow = styled(ArrowUp)`
 	right: 6px;
 	animation: ${bouncingArrowAnimation} 1.5s infinite;
 `;
+/**
+ * Renders an iOS open in system browser component.
+ * @returns JSX element representing the iOS open in system browser component.
+ */
 export const IOSOpenInSystemBrowser = () => (
 	// @ts-expect-error - this is a valid size. Idk why it's not in the types
 	<Arrow size={60} color={"#3478F6"} />

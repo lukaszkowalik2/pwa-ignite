@@ -1,5 +1,12 @@
 import type { SVGProps } from "preact/compat";
 
+/**
+ * DownloadAndroid component.
+ *
+ * @component
+ * @param {SVGProps<SVGSVGElement>} props - The props for the SVG element.
+ * @returns {JSX.Element} The rendered DownloadAndroid component.
+ */
 export const DownloadAndroid = (props: SVGProps<SVGSVGElement>) => {
 	return (
 		<svg

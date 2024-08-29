@@ -5,6 +5,15 @@ import de from "./locales/de.json";
 import fr from "./locales/fr.json";
 import pt from "./locales/pt.json";
 
+/**
+ * Initializes the i18next instance with the specified configuration.
+ *
+ * @param {object} config - The configuration options for i18next.
+ * @param {string} config.fallbackLng - The fallback language to use.
+ * @param {boolean} config.debug - Whether to enable debug mode.
+ * @param {object} config.resources - The language resources to load.
+ * @returns {object} - The initialized i18next instance.
+ */
 export const i18n = i18next.init({
 	fallbackLng: "en",
 	debug: process.env.NODE_ENV === "development",

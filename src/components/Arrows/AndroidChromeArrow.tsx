@@ -26,5 +26,8 @@ const Arrow = styled(ArrowUp)`
 	right: -5px;
 	animation: ${bouncingArrowAnimation} 1.5s infinite;
 `;
+/**
+ * Renders an Android Chrome arrow component.
+ */
 // @ts-expect-error - this is a valid size. Idk why it's not in the types
 export const AndroidChromeArrow = () => <Arrow size={60} color={"#3478F6"} />;

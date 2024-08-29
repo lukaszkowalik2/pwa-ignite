@@ -6,6 +6,13 @@ interface DescriptionProps {
 	description?: string;
 }
 
+/**
+ * Renders a description component.
+ *
+ * @component
+ * @param {DescriptionProps} props - The props for the description component.
+ * @returns {JSX.Element} The rendered description component.
+ */
 export const Description = (props: DescriptionProps) => {
 	return (
 		<DescriptionStyle>

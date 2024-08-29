@@ -26,5 +26,9 @@ const Arrow = styled(ArrowUp)`
 	right: 18px;
 	animation: ${bouncingArrowAnimation} 1.5s infinite;
 `;
+/**
+ * Renders an arrow component for iOS Chrome.
+ * @returns The rendered arrow component.
+ */
 // @ts-expect-error - this is a valid size. Idk why it's not in the types
 export const IOSChromeArrow = () => <Arrow size={60} color={"#3478F6"} />;

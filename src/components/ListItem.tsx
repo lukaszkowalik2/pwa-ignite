@@ -7,6 +7,12 @@ interface ListItemProps {
 	boldText?: string;
 }
 
+/**
+ * ListItem component.
+ *
+ * @param props - The props for the ListItem component.
+ * @returns The rendered ListItem component.
+ */
 export const ListItem = (props: ListItemProps) => {
 	return (
 		<ListItemStyle class="pwa-list-item">

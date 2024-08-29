@@ -27,5 +27,10 @@ const Arrow = styled(ArrowDown)`
 	align-items: center;
 	animation: ${bouncingArrowAnimation} 2s infinite;
 `;
+/**
+ * Renders an arrow component for iOS Safari.
+ *
+ * @returns The rendered arrow component.
+ */
 // @ts-expect-error - this is a valid size. Idk why it's not in the types
 export const IOSSafariArrow = () => <Arrow size={60} color={"#3478F6"} />;
