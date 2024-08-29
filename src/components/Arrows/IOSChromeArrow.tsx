@@ -1,22 +1,16 @@
 import { keyframes, styled } from "goober";
 import { ArrowUp } from "lucide-preact";
 
-const bouncingArrowAnimation = keyframes`
-	0%,
-	20%,
-	50%,
-	80%,
-	100% {
-		transform: translateY(0);
-	}
-
-	40% {
-		transform: translateY(20px);
-	}
-
-	60% {
-		transform: translateY(5px);
-	}
+const bouncingArrow = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(20px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
 `;
 
 const Arrow = styled(ArrowUp)`
@@ -24,7 +18,7 @@ const Arrow = styled(ArrowUp)`
 	position: absolute;
 	top: 0;
 	right: 18px;
-	animation: ${bouncingArrowAnimation} 1.5s infinite;
+	animation: ${bouncingArrow} 1.5s infinite;
 `;
 /**
  * Renders an arrow component for iOS Chrome.
