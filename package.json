@@ -28,10 +28,14 @@
 		"lint:spelling": "cspell \"**\" \".github/**/*\"",
 		"prepare": "husky",
 		"test": "vitest",
-		"tsc": "tsc"
+		"tsc": "tsc",
+		"watch": "tsup --watch"
 	},
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
+	},
+	"dependencies": {
+		"i18next": "^23.14.0"
 	},
 	"devDependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
@@ -67,6 +71,7 @@
 		"release-it": "^17.6.0",
 		"sentences-per-line": "^0.2.1",
 		"tsup": "^8.2.4",
+		"type-fest": "^4.26.0",
 		"typescript": "^5.5.4",
 		"typescript-eslint": "^8.2.0",
 		"vitest": "^2.0.5"

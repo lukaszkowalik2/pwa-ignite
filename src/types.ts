@@ -1,4 +1,5 @@
 import type { WebAppManifest } from "web-app-manifest";
+import type { SetRequired } from "type-fest";
 export interface BeforeInstallPromptEvent extends Event {
 	readonly platforms: string[];
 	readonly userChoice: Promise<{
@@ -13,4 +14,4 @@ export interface IRelatedApp {
 	platform: string;
 	url: string;
 }
-export interface Manifest extends WebAppManifest {}
+export type Manifest = SetRequired<WebAppManifest, "icons" | "name">;
