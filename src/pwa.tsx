@@ -11,7 +11,11 @@ import {
 import { h, render, type ComponentChildren } from "preact";
 import { setup } from "goober";
 
-import type { BeforeInstallPromptEvent, Manifest } from "./types.js";
+import type {
+	BeforeInstallPromptEvent,
+	IRelatedApp,
+	Manifest,
+} from "./types.js";
 import { Modal } from "./components/Modal.js";
 import { Container } from "./components/Container.js";
 import { ListItem } from "./components/ListItem.js";
@@ -32,6 +36,11 @@ interface PWAOptions {
 export class PWA {
 	private _manifest!: Manifest;
 	private deferredPrompt: BeforeInstallPromptEvent | null = null;
+	private relatedApps: IRelatedApp[] = [];
+
+	public isInstallAvailable = false;
+	public isUnderStandaloneMode = false;
+	public isRelatedAppsInstalled = false;
 
 	constructor(options?: PWAOptions) {
 		if (options && options.manifest) {
@@ -40,6 +49,54 @@ export class PWA {
 		} else {
 			this.setManifest();
 		}
+		this.setIsInstallAvailable();
+	}
+
+	private async setIsInstallAvailable() {
+		window.addEventListener("beforeinstallprompt", (event) => {
+			event.preventDefault();
+			this.deferredPrompt = event as BeforeInstallPromptEvent;
+			this.isInstallAvailable = true;
+		});
+
+		this.isUnderStandaloneMode = this.isStandaloneMode();
+		this.relatedApps = await this.getRelatedAppsInstalled();
+
+		if (this.relatedApps.length > 0) {
+			this.isRelatedAppsInstalled = true;
+		}
+
+		if (
+			(this.isRelatedAppsInstalled || this.isUnderStandaloneMode) &&
+			!this.isInstallAvailable
+		) {
+			this.isInstallAvailable = false;
+		}
+	}
+
+	private async getRelatedAppsInstalled(): Promise<IRelatedApp[]> {
+		if (!("getInstalledRelatedApps" in navigator)) {
+			console.warn(
+				"The 'getInstalledRelatedApps' API is not supported in this browser.",
+			);
+			return [];
+		}
+
+		try {
+			const relatedApps = await (navigator as any).getInstalledRelatedApps();
+
+			if (relatedApps.length > 0) {
+				relatedApps.forEach((app: any) => {
+					console.log(
+						`- Platform: ${app.platform}, ID: ${app.id}, URL: ${app.url}`,
+					);
+				});
+				return relatedApps;
+			}
+		} catch (error) {
+			console.error("Failed to check for installed related apps:", error);
+		}
+		return [];
 	}
 
 	private async setManifest() {
@@ -53,9 +110,16 @@ export class PWA {
 		);
 	}
 
-	install() {
-		const modalToRender = this._renderInstallDialog();
-		render(modalToRender, document.body);
+	public async install(): Promise<"accepted" | "dismissed" | null> {
+		if (this.deferredPrompt) {
+			this.deferredPrompt.prompt();
+			const userChoice = await this.deferredPrompt.userChoice;
+			return userChoice.outcome;
+		} else {
+			const modalToRender = this._renderInstallDialog();
+			render(modalToRender, document.body);
+			return null;
+		}
 	}
 
 	private _renderInstallDialog(): ComponentChildren {

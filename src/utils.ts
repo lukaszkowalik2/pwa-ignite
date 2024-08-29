@@ -1,35 +1,6 @@
 import type { WebAppManifest } from "web-app-manifest";
 import type { IRelatedApp } from "./types.js";
 
-export function isStandaloneMode(): boolean {
-	return window.matchMedia("(display-mode: standalone)").matches;
-}
-
-export async function getRelatedAppsInstalled(): Promise<IRelatedApp[]> {
-	if (!("getInstalledRelatedApps" in navigator)) {
-		console.warn(
-			"The 'getInstalledRelatedApps' API is not supported in this browser.",
-		);
-		return [];
-	}
-
-	try {
-		const relatedApps = await (navigator as any).getInstalledRelatedApps();
-
-		if (relatedApps.length > 0) {
-			relatedApps.forEach((app: any) => {
-				console.log(
-					`- Platform: ${app.platform}, ID: ${app.id}, URL: ${app.url}`,
-				);
-			});
-			return relatedApps;
-		}
-	} catch (error) {
-		console.error("Failed to check for installed related apps:", error);
-	}
-	return [];
-}
-
 export function isManifestValid(manifest: WebAppManifest): boolean {
 	if (!manifest) {
 		console.error("Manifest is undefined or null.");
