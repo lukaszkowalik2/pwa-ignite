@@ -5,7 +5,7 @@ export default defineConfig((options) => {
 		clean: true,
 		dts: true,
 		entry: ["src/index.ts"],
-		format: "esm",
+		format: ["esm", "cjs"],
 		injectStyle: true,
 		minify: !options.watch,
 		outDir: "lib",

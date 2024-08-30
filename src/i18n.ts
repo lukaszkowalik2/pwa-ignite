@@ -13,7 +13,7 @@ import pt from "./locales/pt.json";
  * @param {object} config.resources The language resources to load.
  * @returns {object} - The initialized i18next instance.
  */
-await i18next.init({
+void i18next.init({
 	debug: process.env.NODE_ENV === "development",
 	fallbackLng: "en",
 	resources: {
