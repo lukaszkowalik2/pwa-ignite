@@ -7,6 +7,7 @@ export default defineConfig((options) => {
 		dts: true,
 		entry: ["src/index.ts"],
 		format: ["esm", "cjs"],
+		globalName: "PWALibrary",
 		injectStyle: true,
 		minify: !options.watch,
 		outDir: "lib",
