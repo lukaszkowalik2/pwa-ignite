@@ -31,39 +31,39 @@ npm i pwa-ignite
 
 Here’s a quick example of how to use the PWA class:
 
-```tyepscript
+```typescript
 import { PWA } from "pwa-ignite";
 
 // Initialize the PWA with optional configuration
 const pwa = new PWA({
-    manifest: {
-        name: "My PWA",
-        short_name: "PWA",
-        start_url: "/",
-        display: "standalone",
-        background_color: "#ffffff",
-        theme_color: "#000000",
-        icons: [
-            {
-                src: "/icons/icon-192x192.png",
-                sizes: "192x192",
-                type: "image/png"
-            }
-        ]
-    }
+	manifest: {
+		name: "My PWA",
+		short_name: "PWA",
+		start_url: "/",
+		display: "standalone",
+		background_color: "#ffffff",
+		theme_color: "#000000",
+		icons: [
+			{
+				src: "/icons/icon-192x192.png",
+				sizes: "192x192",
+				type: "image/png",
+			},
+		],
+	},
 });
 
 // Check if the app is installable
 if (pwa.isInstallAvailable) {
-    console.log("App is installable.");
-    pwa.install().then((outcome) => {
-        console.log(`User choice: ${outcome}`);
-    });
+	console.log("App is installable.");
+	pwa.install().then((outcome) => {
+		console.log(`User choice: ${outcome}`);
+	});
 }
 
 // Check if the app is running in standalone mode
 if (pwa.isUnderStandaloneMode) {
-    console.log("App is running in standalone mode.");
+	console.log("App is running in standalone mode.");
 }
 ```
 
