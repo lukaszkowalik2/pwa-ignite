@@ -35,6 +35,7 @@
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
+		"goober": "^2.1.14",
 		"i18next": "^23.14.0",
 		"lucide-preact": "^0.436.0",
 		"preact": "^10.23.2"
@@ -60,7 +61,6 @@
 		"eslint-plugin-perfectionist": "^3.2.0",
 		"eslint-plugin-regexp": "^2.6.0",
 		"eslint-plugin-yml": "^1.14.0",
-		"goober": "^2.1.14",
 		"husky": "^9.1.5",
 		"jsonc-eslint-parser": "^2.4.0",
 		"knip": "^5.27.3",
