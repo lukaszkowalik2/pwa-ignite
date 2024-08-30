@@ -662,4 +662,33 @@ export class PWA {
 			}
 		}, 1000);
 	}
+
+	static noConflict(deep?: boolean): typeof PWA {
+		if (deep && window.PWA === PWA) {
+			window.PWA = _PWA;
+		}
+		return PWA;
+	}
+}
+
+declare global {
+	interface Window {
+		PWA?: typeof PWA;
+	}
+}
+
+const _PWA: typeof PWA | undefined = window.PWA;
+
+// Define the noConflict method to restore the original PWA, if needed
+PWA.noConflict = function (deep?: boolean): typeof PWA {
+	if (deep && window.PWA === PWA) {
+		window.PWA = _PWA;
+	}
+	return PWA;
+};
+
+// Expose PWA globally if noGlobal is undefined
+// @ts-expect-error
+if (typeof noGlobal === "undefined") {
+	window.PWA = PWA;
 }
