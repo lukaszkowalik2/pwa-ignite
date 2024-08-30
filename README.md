@@ -15,17 +15,145 @@
 	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
 </p>
 
+# PWA Class Documentation
+
+# Overview
+
+The PWA class provides a streamlined way to manage the installation and running state of a Progressive Web App (PWA). It offers methods for checking if the PWA is installed, determining if it’s running in standalone mode, and handling installation prompts across various platforms and browsers.
+
 ## Usage
 
 ```shell
 npm i pwa-ignite
 ```
 
-```ts
-import { greet } from "pwa-ignite";
+## Quick Start
 
-greet("Hello, world! 💖");
+Here’s a quick example of how to use the PWA class:
+
+```tyepscript
+import { PWA } from "pwa-ignite";
+
+// Initialize the PWA with optional configuration
+const pwa = new PWA({
+    manifest: {
+        name: "My PWA",
+        short_name: "PWA",
+        start_url: "/",
+        display: "standalone",
+        background_color: "#ffffff",
+        theme_color: "#000000",
+        icons: [
+            {
+                src: "/icons/icon-192x192.png",
+                sizes: "192x192",
+                type: "image/png"
+            }
+        ]
+    }
+});
+
+// Check if the app is installable
+if (pwa.isInstallAvailable) {
+    console.log("App is installable.");
+    pwa.install().then((outcome) => {
+        console.log(`User choice: ${outcome}`);
+    });
+}
+
+// Check if the app is running in standalone mode
+if (pwa.isUnderStandaloneMode) {
+    console.log("App is running in standalone mode.");
+}
 ```
+
+## API Documentation
+
+### `PWA` Class
+
+#### Constructor
+
+```typescript
+constructor(options?: PWAOptions)
+```
+
+- **`options`** (Optional): An object of type `PWAOptions` to configure the PWA. The `manifest` field in the options allows you to specify the PWA manifest directly.
+
+#### Properties
+
+- **`isInstallAvailable: boolean`**  
+  Indicates if the app is ready to be installed. It becomes `true` when the `beforeinstallprompt` event is fired.
+
+- **`isUnderStandaloneMode: boolean`**  
+  Indicates if the app is running in standalone mode, such as when it's installed and launched as a separate application.
+
+- **`isRelatedAppsInstalled: boolean`**  
+  Indicates if any related apps specified in the manifest are installed.
+
+#### Methods
+
+- **`install(): Promise<"accepted" | "dismissed" | null>`**  
+  Prompts the user to install the PWA if the installation prompt is available. Returns a promise that resolves to the user's choice (`"accepted"` or `"dismissed"`), or `null` if the prompt isn’t available.
+
+- **`close(): void`**  
+  Closes any open installation dialog by unmounting it from the DOM.
+
+- **`isStandaloneMode(): boolean`**  
+  Checks if the app is running in standalone mode. Returns `true` if it is, otherwise `false`.
+
+- **`isDeviceAndroid(): boolean`**  
+  Checks if the current device is running Android.
+
+- **`isDeviceIOS(): boolean`**  
+  Checks if the current device is running iOS.
+
+- **`isBrowserIOSSafari(): boolean`**  
+  Checks if the current browser is Safari on an iOS device.
+
+- **`isBrowserIOSChrome(): boolean`**  
+  Checks if the current browser is Chrome on an iOS device.
+
+- **`isBrowserIOSFirefox(): boolean`**  
+  Checks if the current browser is Firefox on an iOS device.
+
+- **`isBrowserIOSInAppFacebook(): boolean`**  
+  Checks if the current browser is Facebook's in-app browser on an iOS device.
+
+- **`isBrowserIOSInAppLinkedin(): boolean`**  
+  Checks if the current browser is LinkedIn's in-app browser on an iOS device.
+
+- **`isBrowserIOSInAppInstagram(): boolean`**  
+  Checks if the current browser is Instagram's in-app browser on an iOS device.
+
+- **`isBrowserIOSInAppThreads(): boolean`**  
+  Checks if the current browser is Threads' in-app browser on an iOS device.
+
+- **`isBrowserIOSInAppTwitter(): boolean`**  
+  Checks if the current browser is Twitter's in-app browser on an iOS device.
+
+- **`isBrowserAndroidChrome(): boolean`**  
+  Checks if the current browser is Chrome on an Android device.
+
+- **`isBrowserAndroidFacebook(): boolean`**  
+  Checks if the current browser is Facebook's in-app browser on an Android device.
+
+- **`isBrowserAndroidSamsung(): boolean`**  
+  Checks if the current browser is Samsung Internet on an Android device.
+
+- **`isBrowserAndroidFirefox(): boolean`**  
+  Checks if the current browser is Firefox on an Android device.
+
+## Error Handling
+
+If any method encounters an issue, such as failing to fetch the manifest or determining if the app is running in standalone mode, it will throw an error or log a warning in the console. Always ensure to catch and handle these errors appropriately in your application.
+
+## Contributing
+
+If you'd like to contribute to the development of this class, please fork the repository and submit a pull request. Contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributors
 
@@ -38,7 +166,3 @@ greet("Hello, world! 💖");
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- spellchecker: enable -->
-
-<!-- You can remove this notice if you don't want it 🙂 no worries! -->
-
-> 💙 This package was templated with [`create-typescript-app`](https://github.com/JoshuaKGoldberg/create-typescript-app).
