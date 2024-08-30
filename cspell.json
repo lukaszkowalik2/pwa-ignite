@@ -6,7 +6,16 @@
 		"coverage",
 		"lib",
 		"node_modules",
-		"pnpm-lock.yaml"
+		"pnpm-lock.yaml",
+		"src/locales/**"
 	],
-	"words": ["knip", "packagejson", "tseslint", "tsup"]
+	"words": [
+		"knip",
+		"packagejson",
+		"tseslint",
+		"tsup",
+		"preact",
+		"beforeinstallprompt",
+		"Svgs"
+	]
 }

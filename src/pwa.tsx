@@ -291,7 +291,9 @@ export class PWA {
 	 * @returns True if the browser is Facebook's in-app browser on iOS, false otherwise.
 	 */
 	public isBrowserIOSInAppFacebook(): boolean {
+		// spellchecker: disable
 		return this.isDeviceIOS() && /FBAN|FBAV/.test(navigator.userAgent);
+		// spellchecker: enable
 	}
 
 	/**
@@ -348,7 +350,9 @@ export class PWA {
 	 * @returns True if the browser is Facebook's in-app browser on Android, false otherwise.
 	 */
 	public isBrowserAndroidFacebook(): boolean {
+		// spellchecker: disable
 		return this.isDeviceAndroid() && /FBAN|FBAV/.test(navigator.userAgent);
+		// spellchecker: enable
 	}
 
 	/**
