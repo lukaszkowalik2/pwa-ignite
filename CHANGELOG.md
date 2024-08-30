@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.1.0...0.1.1) (2024-08-30)
+
+### Bug Fixes
+
+- **eslint:** fixed eslint ([f89cff4](https://github.com/lukaszkowalik2/pwa-ignite/commit/f89cff44d86ec2cd091e54cf9c37c7bcc627f0f7))
+- **md:** fixed readme problems ([b1bfa72](https://github.com/lukaszkowalik2/pwa-ignite/commit/b1bfa7274f6043cd01ee81398dc11e36f771a97d))
+- **packages:** fixed packages problems ([2fccf96](https://github.com/lukaszkowalik2/pwa-ignite/commit/2fccf96060321139657e5fbeb40876e7d3f66a85))
+- **spelling:** fixed spelling issiues in project ([50e126c](https://github.com/lukaszkowalik2/pwa-ignite/commit/50e126c4bacb6e9e5d8ae01464cfdb274f72b222))
+
 # 0.1.0 (2024-08-30)
 
 ### Features
