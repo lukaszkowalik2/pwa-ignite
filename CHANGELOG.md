@@ -1,3 +1,9 @@
+# [0.2.0](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.1.1...0.2.0) (2024-08-30)
+
+### Features
+
+- **build_format:** added common js support, fix: removed top-level await when initialize i18n ([deb5292](https://github.com/lukaszkowalik2/pwa-ignite/commit/deb52922e64bbff29175f0c97ffd7a92e761526f))
+
 ## [0.1.1](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.1.0...0.1.1) (2024-08-30)
 
 ### Bug Fixes
