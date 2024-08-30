@@ -4,7 +4,7 @@
 	"description": "Kickstart your Progressive Web App development with a blazing-fast setup. PWA Ignite simplifies the process, making it easier than ever to launch your PWA.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/lukaszkowalik2/pwa-ignite"
+		"url": "git+https://github.com/lukaszkowalik2/pwa-ignite.git"
 	},
 	"license": "MIT",
 	"author": {
@@ -36,12 +36,7 @@
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
 	},
-	"dependencies": {
-		"goober": "^2.1.14",
-		"i18next": "^23.14.0",
-		"lucide-preact": "^0.436.0",
-		"preact": "^10.23.2"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@eslint-community/eslint-plugin-eslint-comments": "4.4.0",
 		"@eslint/js": "9.9.1",
@@ -63,12 +58,16 @@
 		"eslint-plugin-perfectionist": "3.3.0",
 		"eslint-plugin-regexp": "2.6.0",
 		"eslint-plugin-yml": "1.14.0",
+		"goober": "^2.1.14",
 		"husky": "9.1.5",
+		"i18next": "^23.14.0",
 		"jsonc-eslint-parser": "2.4.0",
 		"knip": "5.27.4",
 		"lint-staged": "15.2.9",
+		"lucide-preact": "^0.436.0",
 		"markdownlint": "0.34.0",
 		"markdownlint-cli": "0.41.0",
+		"preact": "^10.23.2",
 		"prettier": "3.3.3",
 		"prettier-plugin-curly": "0.2.2",
 		"prettier-plugin-packagejson": "2.5.2",
