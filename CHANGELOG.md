@@ -1,3 +1,11 @@
+## [0.3.1](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.0...0.3.1) (2024-08-30)
+
+### Bug Fixes
+
+- **entry_point:** added commonjs as deafult entry point ([f0c96b2](https://github.com/lukaszkowalik2/pwa-ignite/commit/f0c96b247b58194e5bab6950de5047fd285b95b3))
+- **package.json:** removed dependencies ([3928fdf](https://github.com/lukaszkowalik2/pwa-ignite/commit/3928fdf47ee71ff757fd1ff1d17f5a80bbbe49ff))
+- **packages:** removed packages from final bundle ([fa277a4](https://github.com/lukaszkowalik2/pwa-ignite/commit/fa277a43d0c8b7a7aba3dca965aa0e211b9a141d))
+
 # [0.3.0](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.2.0...0.3.0) (2024-08-30)
 
 ### Features
