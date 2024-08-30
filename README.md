@@ -1,6 +1,9 @@
 <h1 align="center">PWA Ignite</h1>
 
-<p align="center">Kickstart your Progressive Web App development with a blazing-fast setup. PWA Ignite simplifies the process, making it easier than ever to launch your PWA.</p>
+<p align="center">
+Kickstart your Progressive Web App development with a blazing-fast setup. 
+PWA Ignite simplifies the process, making it easier than ever to launch your PWA.
+</p>
 
 <p align="center">
 	<!-- prettier-ignore-start -->
@@ -19,7 +22,8 @@
 
 # Overview
 
-The PWA class provides a streamlined way to manage the installation and running state of a Progressive Web App (PWA). It offers methods for checking if the PWA is installed, determining if it’s running in standalone mode, and handling installation prompts across various platforms and browsers.
+The PWA class provides a streamlined way to manage the installation and running state of a Progressive Web App (PWA).
+It offers methods for checking if the PWA is installed, determining if it’s running in standalone mode, and handling installation prompts across various platforms and browsers.
 
 ## Usage
 
@@ -77,12 +81,14 @@ if (pwa.isUnderStandaloneMode) {
 constructor(options?: PWAOptions)
 ```
 
-- **`options`** (Optional): An object of type `PWAOptions` to configure the PWA. The `manifest` field in the options allows you to specify the PWA manifest directly.
+- **`options`** (Optional): An object of type `PWAOptions` to configure the PWA.
+  The `manifest` field in the options allows you to specify the PWA manifest directly.
 
 #### Properties
 
 - **`isInstallAvailable: boolean`**  
-  Indicates if the app is ready to be installed. It becomes `true` when the `beforeinstallprompt` event is fired.
+  Indicates if the app is ready to be installed.
+  It becomes `true` when the `beforeinstallprompt` event is fired.
 
 - **`isUnderStandaloneMode: boolean`**  
   Indicates if the app is running in standalone mode, such as when it's installed and launched as a separate application.
@@ -93,13 +99,15 @@ constructor(options?: PWAOptions)
 #### Methods
 
 - **`install(): Promise<"accepted" | "dismissed" | null>`**  
-  Prompts the user to install the PWA if the installation prompt is available. Returns a promise that resolves to the user's choice (`"accepted"` or `"dismissed"`), or `null` if the prompt isn’t available.
+  Prompts the user to install the PWA if the installation prompt is available.
+  Returns a promise that resolves to the user's choice (`"accepted"` or `"dismissed"`), or `null` if the prompt isn’t available.
 
 - **`close(): void`**  
   Closes any open installation dialog by unmounting it from the DOM.
 
 - **`isStandaloneMode(): boolean`**  
-  Checks if the app is running in standalone mode. Returns `true` if it is, otherwise `false`.
+  Checks if the app is running in standalone mode.
+  Returns `true` if it is, otherwise `false`.
 
 - **`isDeviceAndroid(): boolean`**  
   Checks if the current device is running Android.
@@ -145,15 +153,18 @@ constructor(options?: PWAOptions)
 
 ## Error Handling
 
-If any method encounters an issue, such as failing to fetch the manifest or determining if the app is running in standalone mode, it will throw an error or log a warning in the console. Always ensure to catch and handle these errors appropriately in your application.
+If any method encounters an issue, such as failing to fetch the manifest or determining if the app is running in standalone mode, it will throw an error or log a warning in the console.
+Always ensure to catch and handle these errors appropriately in your application.
 
 ## Contributing
 
-If you'd like to contribute to the development of this class, please fork the repository and submit a pull request. Contributions are welcome!
+If you'd like to contribute to the development of this class, please fork the repository and submit a pull request.
+Contributions are welcome!
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
+See the LICENSE file for details.
 
 ## Contributors
 
