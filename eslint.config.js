@@ -19,6 +19,7 @@ export default tseslint.config(
 			"node_modules",
 			"pnpm-lock.yaml",
 			"**/*.snap",
+			"README.md",
 		],
 	},
 	{
@@ -77,9 +78,7 @@ export default tseslint.config(
 			"perfectionist/sort-classes": [
 				"error",
 				{
-					groups: [["static-property", "property", "constructor", "method"]],
-					groupsOrder: ["property", "constructor", "method"],
-					order: "asc",
+					groups: ["static-property", "property", "constructor", "method"],
 				},
 			],
 			"perfectionist/sort-objects": [
