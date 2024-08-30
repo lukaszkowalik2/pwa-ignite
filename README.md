@@ -43,6 +43,8 @@ or
 pnpm add pwa-ignite
 ```
 
+or
+
 ```html
 <script src="https://unpkg.com/pwa-ignite@latest/lib/index.js"></script>
 ```
