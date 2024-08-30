@@ -31,6 +31,22 @@ It offers methods for checking if the PWA is installed, determining if it’s ru
 npm i pwa-ignite
 ```
 
+or
+
+```shell
+yarn add pwa-ignite
+```
+
+or
+
+```shell
+pnpm add pwa-ignite
+```
+
+```html
+<script src="https://unpkg.com/pwa-ignite@latest/lib/index.js"></script>
+```
+
 ## Quick Start
 
 Here’s a quick example of how to use the PWA class:
