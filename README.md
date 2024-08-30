@@ -164,7 +164,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lukaszkowalik2"><img src="https://avatars.githubusercontent.com/u/87244916?v=4?s=100" width="100px;" alt="lukaszkowalik2"/><br /><sub><b>lukaszkowalik2</b></sub></a><br /><a href="#infra-lukaszkowalik2" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/lukaszkowalik2/pwa-ignite/commits?author=lukaszkowalik2" title="Tests">⚠️</a> <a href="https://github.com/lukaszkowalik2/pwa-ignite/commits?author=lukaszkowalik2" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lukaszkowalik2"><img src="https://avatars.githubusercontent.com/u/87244916?v=4?s=100" width="100px;" alt="lukaszkowalik2"/><br /><sub><b>lukaszkowalik2</b></sub></a><br /><a href="#infra-lukaszkowalik2" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/lukaszkowalik2/pwa-ignite/commits?author=lukaszkowalik2" title="Tests">⚠️</a> <a href="https://github.com/lukaszkowalik2/pwa-ignite/commits?author=lukaszkowalik2" title="Code">💻</a> <a href="#maintenance-lukaszkowalik2" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
