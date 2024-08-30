@@ -1,3 +1,9 @@
+# [0.3.0](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.2.0...0.3.0) (2024-08-30)
+
+### Features
+
+- **install:** added installing with npm, yarn, pnpm and unpkg ([173e0de](https://github.com/lukaszkowalik2/pwa-ignite/commit/173e0de3ef1217cf298ee9bc44856086eaf810cb))
+
 # [0.2.0](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.1.1...0.2.0) (2024-08-30)
 
 ### Features
