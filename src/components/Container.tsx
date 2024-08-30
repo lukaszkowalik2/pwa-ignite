@@ -3,6 +3,7 @@ import type { ComponentChildren } from "preact";
 
 interface ContainerProps {
 	children: ComponentChildren;
+	onClick: () => void;
 }
 
 /**
@@ -13,7 +14,7 @@ interface ContainerProps {
  */
 export const Container = (props: ContainerProps) => {
 	return (
-		<ContainerStyle>
+		<ContainerStyle onClick={props.onClick}>
 			<ASideStyle id="pwa-install-element">{props.children}</ASideStyle>
 		</ContainerStyle>
 	);

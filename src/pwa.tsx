@@ -373,7 +373,7 @@ export class PWA {
 	 */
 	private _genIOSSafari(): ComponentChildren {
 		return (
-			<Container>
+			<Container onClick={this.close}>
 				<Description
 					iconUrl={this._manifest.icons[0].src}
 					name={this._manifest.name}
@@ -401,7 +401,7 @@ export class PWA {
 	 */
 	private _genIOSChrome(): ComponentChildren {
 		return (
-			<Container>
+			<Container onClick={this.close}>
 				<Description
 					iconUrl={this._manifest.icons[0].src}
 					name={this._manifest.name}
@@ -429,7 +429,7 @@ export class PWA {
 	 */
 	private _genInAppBrowserOpenInSystemBrowser(): ComponentChildren {
 		return (
-			<Container>
+			<Container onClick={this.close}>
 				<Description
 					iconUrl={this._manifest.icons[0].src}
 					name={this._manifest.name}
@@ -454,7 +454,7 @@ export class PWA {
 
 	private _genIOSInAppBrowserOpenInSafariBrowser(): ComponentChildren {
 		return (
-			<Container>
+			<Container onClick={this.close}>
 				<Description
 					iconUrl={this._manifest.icons[0].src}
 					name={this._manifest.name}
@@ -477,7 +477,7 @@ export class PWA {
 	 */
 	private _genAndroidChrome(): ComponentChildren {
 		return (
-			<Container>
+			<Container onClick={this.close}>
 				<Description
 					iconUrl={this._manifest.icons[0].src}
 					name={this._manifest.name}
