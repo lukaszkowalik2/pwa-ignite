@@ -1,3 +1,9 @@
+## [0.3.6](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.5...0.3.6) (2024-09-01)
+
+### Bug Fixes
+
+- fixed global expose ([3ed7537](https://github.com/lukaszkowalik2/pwa-ignite/commit/3ed7537b9d632088cfcd0f7dba535afd2149a3c2))
+
 ## [0.3.5](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.4...0.3.5) (2024-09-01)
 
 ### Bug Fixes
