@@ -45,7 +45,7 @@ interface PWAOptions {
 /**
  * Class representing a Progressive Web App (PWA) and its related functionalities. This class provides methods for installing the PWA, checking if the PWA is installed, and checking if the PWA is running in standalone mode.
  */
-export class PWA {
+export default class PWA {
 	private _manifest!: Manifest;
 	private deferredPrompt: BeforeInstallPromptEvent | null = null;
 	private relatedApps: IRelatedApp[] = [];

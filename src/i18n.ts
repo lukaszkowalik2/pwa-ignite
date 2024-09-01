@@ -14,7 +14,6 @@ import pt from "./locales/pt.json";
  * @returns {object} - The initialized i18next instance.
  */
 void i18next.init({
-	debug: process.env.NODE_ENV === "development",
 	fallbackLng: "en",
 	resources: {
 		de: {

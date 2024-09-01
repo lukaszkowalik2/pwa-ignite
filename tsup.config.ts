@@ -5,7 +5,7 @@ export default defineConfig((options) => {
 		bundle: !options.watch,
 		clean: true,
 		dts: true,
-		entry: ["src/index.ts"],
+		entry: ["src/pwa.tsx"],
 		format: ["esm", "cjs", "iife"],
 		globalName: "PWA",
 		injectStyle: true,
