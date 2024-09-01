@@ -1,3 +1,9 @@
+## [0.3.5](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.4...0.3.5) (2024-09-01)
+
+### Bug Fixes
+
+- expose PWA class globally ([316f3cf](https://github.com/lukaszkowalik2/pwa-ignite/commit/316f3cf308cde6416460a1895ef8760f8cd431f7))
+
 ## [0.3.4](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.1...0.3.4) (2024-09-01)
 
 ### Bug Fixes
