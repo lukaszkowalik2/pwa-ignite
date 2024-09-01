@@ -663,11 +663,3 @@ export class PWA {
 		}, 1000);
 	}
 }
-
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-	module.exports = PWA;
-}
-
-if (typeof exports !== "undefined" && typeof exports.default === "undefined") {
-	exports.default = PWA;
-}

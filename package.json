@@ -11,7 +11,7 @@
 		"email": "lkowalik04@gmail.com"
 	},
 	"type": "module",
-	"main": "./lib/index.cjs",
+	"main": "./lib/index.global.js",
 	"module": "./lib/index.js",
 	"types": "./lib/index.d.ts",
 	"files": [

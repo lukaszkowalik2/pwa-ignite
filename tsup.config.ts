@@ -6,7 +6,7 @@ export default defineConfig((options) => {
 		clean: true,
 		dts: true,
 		entry: ["src/index.ts"],
-		format: ["esm", "cjs"],
+		format: ["esm", "cjs", "iife"],
 		globalName: "PWA",
 		injectStyle: true,
 		minify: !options.watch,
