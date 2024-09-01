@@ -1,3 +1,12 @@
+## [0.3.4](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.1...0.3.4) (2024-09-01)
+
+### Bug Fixes
+
+- expose PWA globally ([a9ce749](https://github.com/lukaszkowalik2/pwa-ignite/commit/a9ce749cc2047887af23d402cc68778f24dc50e7))
+- fix global expose ([fc22e25](https://github.com/lukaszkowalik2/pwa-ignite/commit/fc22e25db4aceb19d0d54560e47bf9e6ccf27e6d))
+- fix package version ([285cc4a](https://github.com/lukaszkowalik2/pwa-ignite/commit/285cc4a50993635086eb783a2bf5a7726ea40e2b))
+- it should fix commonjs issue ([88a8763](https://github.com/lukaszkowalik2/pwa-ignite/commit/88a87633c6dbcc9670fb2214f574d5e883b5b1ee))
+
 ## [0.3.1](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.0...0.3.1) (2024-08-30)
 
 ### Bug Fixes
