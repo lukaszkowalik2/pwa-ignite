@@ -54,7 +54,7 @@ or
 Here’s a quick example of how to use the PWA class:
 
 ```typescript
-import { PWA } from "pwa-ignite";
+import PWA from "pwa-ignite";
 
 // Initialize the PWA with optional configuration
 const pwa = new PWA({
@@ -76,7 +76,7 @@ const pwa = new PWA({
 });
 
 // Check if the app is installable
-if (pwa.isInstallAvailable) {
+if (pwa.isInstallAvailable()) {
 	console.log("App is installable.");
 	pwa.install().then((outcome) => {
 		console.log(`User choice: ${outcome}`);
@@ -84,7 +84,7 @@ if (pwa.isInstallAvailable) {
 }
 
 // Check if the app is running in standalone mode
-if (pwa.isUnderStandaloneMode) {
+if (pwa.isUnderStandaloneMode()) {
 	console.log("App is running in standalone mode.");
 }
 ```

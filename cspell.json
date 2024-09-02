@@ -10,12 +10,13 @@
 		"src/locales/**"
 	],
 	"words": [
-		"knip",
-		"packagejson",
-		"tseslint",
-		"tsup",
-		"preact",
 		"beforeinstallprompt",
-		"Svgs"
+		"knip",
+		"languagedetector",
+		"packagejson",
+		"preact",
+		"Svgs",
+		"tseslint",
+		"tsup"
 	]
 }

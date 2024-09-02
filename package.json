@@ -11,9 +11,9 @@
 		"email": "lkowalik04@gmail.com"
 	},
 	"type": "module",
-	"main": "./lib/index.global.js",
-	"module": "./lib/index.js",
-	"types": "./lib/index.d.ts",
+	"main": "./lib/pwa.global.js",
+	"module": "./lib/pwa.js",
+	"types": "./lib/pwa.d.ts",
 	"files": [
 		"lib/",
 		"package.json",
@@ -60,6 +60,7 @@
 		"goober": "2.1.14",
 		"husky": "9.1.5",
 		"i18next": "23.14.0",
+		"i18next-browser-languagedetector": "^8.0.0",
 		"jsonc-eslint-parser": "2.4.0",
 		"knip": "5.27.4",
 		"lint-staged": "15.2.9",

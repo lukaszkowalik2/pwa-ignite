@@ -1,4 +1,5 @@
 import i18next from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
 import de from "./locales/de.json";
 import en from "./locales/en.json";
@@ -13,7 +14,7 @@ import pt from "./locales/pt.json";
  * @param {object} config.resources The language resources to load.
  * @returns {object} - The initialized i18next instance.
  */
-void i18next.init({
+void i18next.use(LanguageDetector).init({
 	fallbackLng: "en",
 	resources: {
 		de: {
