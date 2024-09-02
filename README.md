@@ -46,7 +46,7 @@ pnpm add pwa-ignite
 or
 
 ```html
-<script src="https://unpkg.com/pwa-ignite@latest/lib/index.js"></script>
+<script src="https://unpkg.com/pwa-ignite@latest/lib/pwa.global.js"></script>
 ```
 
 ## Quick Start
