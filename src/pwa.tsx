@@ -69,6 +69,9 @@ export default class PWA {
 	 * @param options - The options for configuring the PWA.
 	 */
 	constructor(options?: PWAOptions) {
+		if (options && typeof options !== "object") {
+			throw new Error("Options must be an object.");
+		}
 		this._init(options);
 	}
 

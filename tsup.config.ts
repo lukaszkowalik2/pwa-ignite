@@ -11,7 +11,7 @@ export default defineConfig((options) => {
 		injectStyle: true,
 		minify: !options.watch,
 		outDir: "lib",
-		sourcemap: true,
+		sourcemap: !!options.watch,
 		splitting: false,
 		treeshake: true,
 	};
