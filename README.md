@@ -46,7 +46,7 @@ pnpm add pwa-ignite
 or
 
 ```html
-<script src="https://unpkg.com/pwa-ignite@latest/lib/index.js"></script>
+<script src="https://unpkg.com/pwa-ignite@latest/lib/pwa.global.js"></script>
 ```
 
 ## Quick Start
@@ -54,7 +54,7 @@ or
 Here’s a quick example of how to use the PWA class:
 
 ```typescript
-import { PWA } from "pwa-ignite";
+import PWA from "pwa-ignite";
 
 // Initialize the PWA with optional configuration
 const pwa = new PWA({
@@ -76,7 +76,7 @@ const pwa = new PWA({
 });
 
 // Check if the app is installable
-if (pwa.isInstallAvailable) {
+if (pwa.isDialogAvailable()) {
 	console.log("App is installable.");
 	pwa.install().then((outcome) => {
 		console.log(`User choice: ${outcome}`);
@@ -84,7 +84,7 @@ if (pwa.isInstallAvailable) {
 }
 
 // Check if the app is running in standalone mode
-if (pwa.isUnderStandaloneMode) {
+if (pwa.isUnderStandaloneMode()) {
 	console.log("App is running in standalone mode.");
 }
 ```
@@ -125,6 +125,10 @@ constructor(options?: PWAOptions)
 
 - **`isStandaloneMode(): boolean`**  
   Checks if the app is running in standalone mode.
+  Returns `true` if it is, otherwise `false`.
+
+- **`isDialogAvailable(): boolean`**
+  Checks if the dialog is available.
   Returns `true` if it is, otherwise `false`.
 
 - **`isDeviceAndroid(): boolean`**  

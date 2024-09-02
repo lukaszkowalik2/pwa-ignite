@@ -2,7 +2,7 @@ import { defineConfig } from "tsup";
 
 export default defineConfig((options) => {
 	return {
-		bundle: !options.watch,
+		bundle: true,
 		clean: true,
 		dts: true,
 		entry: ["src/pwa.tsx"],
@@ -11,7 +11,7 @@ export default defineConfig((options) => {
 		injectStyle: true,
 		minify: !options.watch,
 		outDir: "lib",
-		sourcemap: true,
+		sourcemap: !!options.watch,
 		splitting: false,
 		treeshake: true,
 	};
