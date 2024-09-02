@@ -1,6 +1,6 @@
 {
 	"name": "pwa-ignite",
-	"version": "0.3.6",
+	"version": "0.4.0",
 	"description": "Kickstart your Progressive Web App development with a blazing-fast setup. PWA Ignite simplifies the process, making it easier than ever to launch your PWA.",
 	"repository": {
 		"type": "git",

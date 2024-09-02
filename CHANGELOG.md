@@ -1,3 +1,16 @@
+# [0.4.0](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.6...0.4.0) (2024-09-02)
+
+### Bug Fixes
+
+- **README:** fixed unpkg url ([8f44433](https://github.com/lukaszkowalik2/pwa-ignite/commit/8f444334b04713ef2a8249224ba6ce25170c19c9))
+- **spelling:** fixed spelling ([8eb1343](https://github.com/lukaszkowalik2/pwa-ignite/commit/8eb1343b7c8bf19bc20516878f0143a936b37b01))
+
+### Features
+
+- added function ([5eedab8](https://github.com/lukaszkowalik2/pwa-ignite/commit/5eedab81102fdc834120c12356d9e83463980856))
+- added error when invalid options type is provided ([d770eb1](https://github.com/lukaszkowalik2/pwa-ignite/commit/d770eb1e0f6058b276ed56da7fa0e40fa8d60b78))
+- added language detection, fix(development): fixed developmemnt bundle ([0fd25dd](https://github.com/lukaszkowalik2/pwa-ignite/commit/0fd25dd42d7341ebb4f074a5b4aa0e4ecd9f2c46))
+
 ## [0.3.6](https://github.com/lukaszkowalik2/pwa-ignite/compare/0.3.5...0.3.6) (2024-09-01)
 
 ### Bug Fixes
