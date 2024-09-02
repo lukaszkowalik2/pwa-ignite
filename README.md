@@ -127,6 +127,10 @@ constructor(options?: PWAOptions)
   Checks if the app is running in standalone mode.
   Returns `true` if it is, otherwise `false`.
 
+- **`isDialogAvailable(): boolean`**
+  Checks if the dialog is available.
+  Returns `true` if it is, otherwise `false`.
+
 - **`isDeviceAndroid(): boolean`**  
   Checks if the current device is running Android.
 
