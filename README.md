@@ -76,7 +76,7 @@ const pwa = new PWA({
 });
 
 // Check if the app is installable
-if (pwa.isInstallAvailable()) {
+if (pwa.isDialogAvailable()) {
 	console.log("App is installable.");
 	pwa.install().then((outcome) => {
 		console.log(`User choice: ${outcome}`);
