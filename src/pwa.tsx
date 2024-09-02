@@ -256,6 +256,7 @@ export default class PWA {
 	 * @returns {boolean} True if the device is a desktop, false otherwise.
 	 */
 	private isDesktop(): boolean {
+		// spellchecker: disable
 		const navigatorAgent =
 			navigator.userAgent || navigator.vendor || (window as any).opera;
 		return !(
@@ -266,6 +267,7 @@ export default class PWA {
 				navigatorAgent.substr(0, 4),
 			)
 		);
+		// spellchecker: enable
 	}
 	/**
 	 * Checks if the current device is running Android.
