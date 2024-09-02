@@ -78,7 +78,7 @@ importers:
         specifier: 23.14.0
         version: 23.14.0
       i18next-browser-languagedetector:
-        specifier: ^8.0.0
+        specifier: 8.0.0
         version: 8.0.0
       jsonc-eslint-parser:
         specifier: 2.4.0
