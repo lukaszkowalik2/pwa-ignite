@@ -8,6 +8,7 @@
 	},
 	"license": "MIT",
 	"author": {
+		"name": "Łukasz Kowalik",
 		"email": "lkowalik04@gmail.com"
 	},
 	"type": "module",
