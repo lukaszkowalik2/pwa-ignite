@@ -42,7 +42,7 @@
 		"@release-it/conventional-changelog": "8.0.1",
 		"@types/eslint-plugin-markdown": "2.0.2",
 		"@types/eslint__js": "8.42.3",
-		"@types/node": "22.5.1",
+		"@types/node": "22.6.1",
 		"@types/web-app-manifest": "1.0.8",
 		"@vitest/coverage-v8": "2.0.5",
 		"@vitest/eslint-plugin": "1.1.0",
