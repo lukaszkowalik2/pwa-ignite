@@ -90,8 +90,8 @@ importers:
         specifier: 15.2.9
         version: 15.2.9
       lucide-preact:
-        specifier: 0.447.0
-        version: 0.447.0(preact@10.24.1)
+        specifier: 0.451.0
+        version: 0.451.0(preact@10.24.1)
       markdownlint:
         specifier: 0.35.0
         version: 0.35.0
@@ -2457,8 +2457,8 @@ packages:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
 
-  lucide-preact@0.447.0:
-    resolution: {integrity: sha512-04H7Jf0JfgNPjAE+Lm4TUrkuIU1/C54EIFWBKORUKms9QGBJkaHmP8iwMGTNMy/cK1tWw9KauDEbN+OFTwhwsw==}
+  lucide-preact@0.451.0:
+    resolution: {integrity: sha512-e5GP4eIZnT4F/OVGp+HX3gAAvfHnYwbeUTkeaMLknO9M60qdsbNUYoifcsEBsMxLmBhQJL2RwBxT9i/Hsc9kOw==}
     peerDependencies:
       preact: ^10.5.13
 
@@ -5893,7 +5893,7 @@ snapshots:
 
   lru-cache@7.18.3: {}
 
-  lucide-preact@0.447.0(preact@10.24.1):
+  lucide-preact@0.451.0(preact@10.24.1):
     dependencies:
       preact: 10.24.1
 
