@@ -65,7 +65,7 @@
 		"jsonc-eslint-parser": "2.4.0",
 		"knip": "5.33.3",
 		"lint-staged": "15.2.9",
-		"lucide-preact": "0.453.0",
+		"lucide-preact": "0.454.0",
 		"markdownlint": "0.35.0",
 		"markdownlint-cli": "0.42.0",
 		"preact": "10.24.1",
