@@ -63,7 +63,7 @@
 		"i18next": "23.16.4",
 		"i18next-browser-languagedetector": "8.0.0",
 		"jsonc-eslint-parser": "2.4.0",
-		"knip": "5.36.3",
+		"knip": "5.37.0",
 		"lint-staged": "15.2.9",
 		"lucide-preact": "0.456.0",
 		"markdownlint": "0.36.1",
