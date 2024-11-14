@@ -66,7 +66,7 @@
 		"knip": "5.36.3",
 		"lint-staged": "15.2.9",
 		"lucide-preact": "0.456.0",
-		"markdownlint": "0.35.0",
+		"markdownlint": "0.36.1",
 		"markdownlint-cli": "0.42.0",
 		"preact": "10.24.1",
 		"prettier": "3.3.3",
