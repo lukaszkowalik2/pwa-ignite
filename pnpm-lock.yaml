@@ -123,8 +123,8 @@ importers:
         specifier: 8.3.0
         version: 8.3.0(jiti@2.4.0)(postcss@8.4.47)(typescript@5.6.2)(yaml@2.6.0)
       type-fest:
-        specifier: 4.27.0
-        version: 4.27.0
+        specifier: 4.28.0
+        version: 4.28.0
       typescript:
         specifier: 5.6.2
         version: 5.6.2
@@ -3332,8 +3332,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.27.0:
-    resolution: {integrity: sha512-3IMSWgP7C5KSQqmo1wjhKrwsvXAtF33jO3QY+Uy++ia7hqvgSK6iXbbg5PbDBc1P2ZbNEDgejOrN4YooXvhwCw==}
+  type-fest@4.28.0:
+    resolution: {integrity: sha512-jXMwges/FVbFRe5lTMJZVEZCrO9kI9c8k0PA/z7nF3bo0JSCCLysvokFjNPIUK/itEMas10MQM+AiHoHt/T/XA==}
     engines: {node: '>=16'}
 
   typedarray@0.0.6:
@@ -4546,7 +4546,7 @@ snapshots:
       chalk: 5.3.0
       cli-boxes: 3.0.0
       string-width: 7.2.0
-      type-fest: 4.27.0
+      type-fest: 4.28.0
       widest-line: 5.0.0
       wrap-ansi: 9.0.0
 
@@ -4958,7 +4958,7 @@ snapshots:
 
   dot-prop@9.0.0:
     dependencies:
-      type-fest: 4.27.0
+      type-fest: 4.28.0
 
   eastasianwidth@0.2.0: {}
 
@@ -6232,7 +6232,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.25.7
       index-to-position: 0.1.2
-      type-fest: 4.27.0
+      type-fest: 4.28.0
 
   parse-ms@4.0.0: {}
 
@@ -6368,14 +6368,14 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.27.0
+      type-fest: 4.28.0
 
   read-pkg@9.0.1:
     dependencies:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.27.0
+      type-fest: 4.28.0
       unicorn-magic: 0.1.0
 
   readable-stream@3.6.2:
@@ -6809,7 +6809,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.27.0: {}
+  type-fest@4.28.0: {}
 
   typedarray@0.0.6: {}
 
