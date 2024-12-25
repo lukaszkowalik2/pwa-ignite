@@ -75,8 +75,8 @@ importers:
         specifier: 9.1.5
         version: 9.1.5
       i18next:
-        specifier: 24.1.2
-        version: 24.1.2(typescript@5.6.2)
+        specifier: 24.2.0
+        version: 24.2.0(typescript@5.6.2)
       i18next-browser-languagedetector:
         specifier: 8.0.0
         version: 8.0.0
@@ -2119,8 +2119,8 @@ packages:
   i18next-browser-languagedetector@8.0.0:
     resolution: {integrity: sha512-zhXdJXTTCoG39QsrOCiOabnWj2jecouOqbchu3EfhtSHxIB5Uugnm9JaizenOy39h7ne3+fLikIjeW88+rgszw==}
 
-  i18next@24.1.2:
-    resolution: {integrity: sha512-th/075GW0Ub1gYDMHLiZXMGSfGv1aP1VqjT3fma/12hNHCNlH8oJMftvlDzycT/R+KoULWk+xLU8H1JRwV85qw==}
+  i18next@24.2.0:
+    resolution: {integrity: sha512-ArJJTS1lV6lgKH7yEf4EpgNZ7+THl7bsGxxougPYiXRTJ/Fe1j08/TBpV9QsXCIYVfdE/HWG/xLezJ5DOlfBOA==}
     peerDependencies:
       typescript: ^5
     peerDependenciesMeta:
@@ -5624,7 +5624,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
 
-  i18next@24.1.2(typescript@5.6.2):
+  i18next@24.2.0(typescript@5.6.2):
     dependencies:
       '@babel/runtime': 7.25.6
     optionalDependencies:
